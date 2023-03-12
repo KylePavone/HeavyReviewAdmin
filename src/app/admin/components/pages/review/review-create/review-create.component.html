@@ -4,7 +4,9 @@
         <div class="notification-saved" #savedHint>Сохранено</div>
         <app-button [disabled]="titleField.valid && textField.valid ? false : true" 
             (click)="save()" 
+            #saveButton
             [text]="'Сохранить'">
+
         </app-button>
     </div>
 

@@ -9,7 +9,8 @@ import { ApiService } from 'src/app/core/services/api.service';
 export class ReviewListComponent implements OnInit {
   public reviews: any;
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.apiService.get('/api/review').subscribe((response) => {
@@ -18,7 +19,9 @@ export class ReviewListComponent implements OnInit {
   }
 
   itemDelete(item: any) {
-    this.apiService.getOne('/api/review/delete', item.id).subscribe((response) => {
+    let data = item 
+    data.id = item.id
+    this.apiService.get('/api/review/delete', data).subscribe((response) => {
       if (response.status === 204) {
         this.reviews.splice(this.reviews.indexOf(item), 1);
       }

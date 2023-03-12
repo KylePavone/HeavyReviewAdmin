@@ -23,7 +23,10 @@ export class ApiService {
     })
   }
 
-  get(url: string) {
+  get(url: string, data: any = {}) {
+    if (data.id) {
+      url = url + '/' + data.id
+    }
     return new Observable<any>((observer) => {
       this.http.get(this.domainUrl + url).subscribe((data) => {
         observer.next(data);

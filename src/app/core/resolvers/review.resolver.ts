@@ -11,6 +11,7 @@ import { ApiService } from '../services/api.service';
   providedIn: 'root'
 })
 export class ReviewResolver implements Resolve<boolean> {
+  public data: any = {}
   
   constructor(
     private router: Router,
@@ -18,7 +19,8 @@ export class ReviewResolver implements Resolve<boolean> {
     ) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    return this.apiService.getOne('/api/review', route.params?.['id']).pipe(
+    this.data.id = route.params?.['id']  
+    return this.apiService.get('/api/review', this.data).pipe(
       catchError(() => {
         this.router.navigate(['/review-list']);
         return EMPTY

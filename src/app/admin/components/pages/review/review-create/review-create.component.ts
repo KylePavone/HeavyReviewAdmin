@@ -3,8 +3,10 @@ import { Component, DoCheck, ElementRef, Input, OnInit, ViewChild } from '@angul
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/core/services/api.service';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { InputComponent } from '../../../shared/components/input/input.component';
 import { TextareaComponent } from '../../../shared/components/textarea/textarea.component';
+
 
 export interface Review {
   id?: number;
@@ -12,6 +14,7 @@ export interface Review {
   content?: string;
   likes_count?: number;
   created?: string;
+  tags?: Array<string>;
 }
 
 
@@ -29,6 +32,7 @@ export class ReviewCreateComponent implements OnInit {
   @ViewChild('savedHint', {static: true}) savedHint!: ElementRef;
   @ViewChild('titleField', {static: true}) title!: InputComponent | any;
   @ViewChild('textField', {static: true}) text!: TextareaComponent | any;
+  @ViewChild('saveButton', {static: true}) saveBtn: ButtonComponent | any;
 
   constructor(
       private apiService: ApiService,
@@ -38,6 +42,7 @@ export class ReviewCreateComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
+
     if (!this.router.url.includes('create')) {
       this.reviewSubscription = this.route.data.subscribe((data: any) => {        
         this.model.id = data.data.id
@@ -56,10 +61,13 @@ export class ReviewCreateComponent implements OnInit {
   }
 
   save() {
-    this.apiService.post('/api/review/create', this.model).subscribe((response) => {
-      if (response.status === 201) {
-        this.initSaveHint()
-      }
-    })
+    if (!this.saveBtn.disabled) {
+      this.model.tags = ['metalcore', 'deathcore'];
+      this.apiService.post('/api/review/create', this.model).subscribe((response) => {
+        if (response.status === 201) {
+          this.initSaveHint()
+        }
+      })
+    }
   }
 }

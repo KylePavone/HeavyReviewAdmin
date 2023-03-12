@@ -1,0 +1,25 @@
+@import 'src\\style-base\\_variables.scss';
+
+
+button {
+    background-color: $main-color;
+    color: #606060;
+    border: 2px solid #606060;
+    
+    border-radius: 10px;
+    padding: 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color:#eaecee;
+        color: #606060;
+    }
+
+    &:disabled {
+        opacity: .3;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}

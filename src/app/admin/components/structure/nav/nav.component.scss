@@ -1,0 +1,42 @@
+@import 'src\\style-base\\_variables.scss';
+
+
+.nav-wrapper {
+    min-height: 100%;
+    background-color: #ffffff;
+    padding: 60px 20px 10px 20px;
+    margin: 0px 20px;
+    // border: 2px solid #000;
+    border-radius: 4px;
+    
+    -webkit-box-shadow: 0px -1px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px -1px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px -1px 10px 2px rgba(34, 60, 80, 0.2);
+    
+
+    .nav-content {
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .nav-list-item {
+
+                .nav-list-item-link {
+                    font-size: 16px;
+                    font-weight: 700;
+                    // color: #000000;
+                    transition: all 0.3s ease-in-out;
+                    color: #393939;
+                    &:hover {
+                        color: $main-red-color;
+                        color: #8e8e8e;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+

@@ -1,0 +1,45 @@
+<div class="review-create">
+    
+    <div class="notification-line">
+        <div class="notification-saved" #savedHint>Сохранено</div>
+        <app-button [disabled]="titleField.valid && textField.valid ? false : true" 
+            (click)="save()" 
+            [text]="'Сохранить'">
+        </app-button>
+    </div>
+
+    <div class="review-create-content">
+        <h2 class="review-create-title">Создание</h2>
+        <br>
+        <form action="#" >
+            <div class="review-create-form-first-section">
+                <!-- <label for="title"></label> -->
+                <app-input
+                    class="title-input"
+                    id="title"
+                    name="title"
+                    [placeholder]="'title'"
+                    [(ngModel)]="model.title"
+                    #titleField="ngModel"
+                    [width]="'100%'" type="text"
+                    required>
+                </app-input>
+
+                <!-- <div class="image-input">Upload image</div>
+                <div class="tag-select">Choose tag</div> -->
+            </div>
+
+            <app-textarea 
+                class="text-input"
+                name="text" 
+                [(ngModel)]="model.content" 
+                #textField="ngModel" 
+                required
+                [rows]="20"
+                [placeholder]="'text'">
+            </app-textarea>
+        </form>
+    </div>
+</div>
+
+

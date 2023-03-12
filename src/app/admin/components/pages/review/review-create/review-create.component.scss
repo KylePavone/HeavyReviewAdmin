@@ -1,0 +1,89 @@
+@keyframes savedNotification {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    25% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+
+.review-create {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 4px;
+    padding: 30px;
+
+    .review-create-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #3e3e3e;
+        margin-bottom: 14px;
+    }
+
+    .notification-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+
+        .notification-saved {
+            position: relative;
+            font-size: 20px;
+            font-weight: 700;
+            color: rgb(33, 185, 13);
+            opacity: 0;
+            visibility: hidden;
+            
+            &.active {
+                animation: 1.4s ease 1 savedNotification ;
+            }
+        }
+    }
+
+    .review-create-content {
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+
+            .review-create-form-first-section {
+                display: flex;
+                // gap: 20px;
+                align-items: center;
+                // justify-content: space-between;
+
+                .title-input {
+                    width: 60%;
+                }
+
+                .image-input {
+                    text-align: center;
+                    border: 2px solid #000;
+                    border-radius: 10px;
+                    padding: 10px 30px;
+                    margin-left: 100px;
+                    min-width: 200px;
+                }
+
+                .tag-select {
+                    border: 2px solid #000;
+                    border-radius: 10px;
+                    text-align: center;
+                    padding: 10px 30px;
+                    margin-left: 100px;
+                    min-width: 200px;
+                }
+            }
+        }
+    }
+}

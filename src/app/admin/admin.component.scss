@@ -1,0 +1,51 @@
+@import 'src\\style-base\\_variables.scss';
+
+
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    font-family: Manrope;
+    min-height: 100vh;
+    letter-spacing: 1.4px;
+
+    .admin-header {
+        color: $light-text-color;
+        font-size: 20px;
+        font-weight: 700;
+        max-height: 50px;
+        padding-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .admin-main {
+        background-color: $main-color;
+        background-color: rgb(245, 245, 245);
+
+        display: flex;
+        padding: 0px 20px 20px 20px;
+        color: #000000;
+        height: 100vh;
+        .page-nav {
+            flex: 1 1 auto;
+            margin-top: 30px;
+            // margin-bottom: 50px;
+            min-width: 260px;
+            // min-height: 100%;
+            // height: 1000px;
+            // margin-bottom: 100px;
+        }
+
+        .admin-pages {
+            width: 100%;
+            margin-top: 30px;
+            // background-color: rgb(223, 220, 220);
+            background-color: #fff;
+            overflow: auto;
+            // min-height: 100vh;
+            // height: 1000px;
+            // margin-bottom: 50px;
+        }
+    }
+}
